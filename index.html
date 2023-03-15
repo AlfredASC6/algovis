@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Algorithn Visualizer</title>
+</head>
+<body>
+    <h1>Algorithm Visualizer MVP</h1>
+    <div id = "holder">
+        <menu id = "men">
+            <button class = "dd-button">Sorting Algorithms</button>
+            <div class = "dropdown">
+                <li>Bubble sort</li>
+                <li>Heap sort</li>
+            </div>
+            <button class = "dd-button">Search Algorithms</button>
+            <div class = "dropdown">
+                <li>Dijkstra's Algorithm</li>
+            </div>
+        </menu>
+
+        <section id = "visualizer">
+
+        </section>
+    </div>
+    <section id = "bottom">
+        <p>Would you like to input your own array?</p>
+        <section id = "button-holder">
+            <button class = "blue">Yes</button>
+            <button id = "no">No</button>
+            <button id = "sort"class = "blue">Sort</button>
+        </section>
+        
+    </section>
+
+    <script>
+        var dropdown = document.getElementsByClassName("dd-button");
+    var i;
+
+    for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+            } else {
+            dropdownContent.style.display = "block";
+            }
+        });
+    }
+    </script>
+</body>
+</html>
