@@ -1,37 +1,45 @@
-.html{
+.html {
     background-color: #E8F1F2;
     font-family: "Inter";
 }
-h1{
+
+h1 {
     text-align: center;
 }
-#visualizer{
+
+#visualizer {
     border: solid black 3px;
     height: 15em;
     right: 0;
     width: 50em;
     margin-left: 20em;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
 }
 
-#holder{
+#holder {
     display: flex;
     justify-content: space-evenly;
 }
 
-#men{
+#men {
     position: fixed;
     /* margin-right: 50em; */
     left: 0;
     display: flex;
     flex-direction: column;
     background-color: #127475;
-    
+
 }
-.dropdown{
+
+.dropdown {
     display: none;
     padding-left: 4em;
 }
-#men li, .dd-button{
+
+#men li,
+.dd-button {
     cursor: pointer;
     text-decoration: none;
     border: none;
@@ -42,14 +50,14 @@ h1{
     border-radius: 10%;
 }
 
-#bottom{
+#bottom {
     display: flex;
     flex-flow: column;
     padding-left: 32.5em;
     padding-top: 1em;
 }
 
-.blue{
+.blue {
     background-color: #3590F3;
     padding: 1.5em;
 }

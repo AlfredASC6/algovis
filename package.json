@@ -1,0 +1,21 @@
+{
+  "name": "algovis",
+  "version": "1.0.0",
+  "description": "Algorithm Visualizer using JavaScipt",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlfredASC6/algovis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlfredASC6/algovis/issues"
+  },
+  "homepage": "https://github.com/AlfredASC6/algovis#readme",
+  "dependencies": {}
+}
