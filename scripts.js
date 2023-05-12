@@ -3,7 +3,7 @@ var dropdown = document.getElementsByClassName("dd-button");
 let screen = document.getElementById("visualizer");
 const testArray = [5, -1, 10, 23, 4, 8, 2, 25, 7, 0 ] ;
 let swapped = true; 
-let pass = 1;
+let pass = 0;
 let current = 0;
 
 
@@ -36,7 +36,6 @@ function bubbleSort(){
         arraydisp.appendChild(newContent);
         
     }
-    //arraydisp.appendChild(document.createTextNode(" ]"));
     screen.appendChild(arraydisp);
     console.log("It function being called");
     //first outer loop keeps passing through the array until there remain to pairs 
@@ -52,8 +51,7 @@ function bubbleSort(){
         let newLine = document.createElement("div");
         //newLine.appendChild(newLineDisp);
         while(current < testArray.length - 1){
-            //console.log(bubbleSortDisplay(current));
-            //console.log(bubbleSortDisplay(current));
+            
             stringArr = bubbleSortDisplay(current);
             newLine.append(stringArr);
             screen.appendChild(newLine);
@@ -64,16 +62,17 @@ function bubbleSort(){
                 testArray[current + 1] = temp;
 
                 swapped = true;
-                //stringArr = "";
             }//end of if statement
             newLine = document.createElement("div");
             current++;            
         }//end of first inner loop
         
-        //console.log(bubbleSortDisplay(-1));
-        
         screen.appendChild(newLine);
         pass++;
+        let passNo = "Number of passes: " + pass.toString();
+        let passNoDiv = document.createElement("div");
+        passNoDiv.append(passNo);
+        screen.appendChild(passNoDiv);
         newLine = document.createElement("div");
     }//end of first outer loop
 }
