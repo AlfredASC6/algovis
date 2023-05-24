@@ -1,9 +1,14 @@
 var dropdown = document.getElementsByClassName("dd-button");
 
 let screen = document.getElementById("visualizer");
-const testArray = [5, -1, 10, 23, 4, 8, 2, 25, 7, 0 ] ;
-const selectionSortArray = [5, -1, 10, 23, 4, 8, 2, 25, 7, 0 ]
+let input = document.getElementById("input");
+// const testArray = [5, -1, 10, 23, 4, 8, 2, 25, 7, 0 ] ;
+// const selectionSortArray = [5, -1, 10, 23, 4, 8, 2, 25, 7, 0 ]
 const pidgeonHoleArr = [2, 5, 2, 3, 6, 7, 6, 9, 10, 1];
+let bubbleSortArray = [];
+let selectionSortArray = []
+let mergeSortArray;
+
 
 let swapped = true; 
 let pass = 0;
@@ -22,19 +27,19 @@ for (i = 0; i < dropdown.length; i++) {
     });
 }
 
-function bubbleSort(){
+function bubbleSort(inputArray){
     let arraydisp = document.createElement("div");
     let newContent = document.createTextNode("[ ");
     let firstLine = document.createTextNode("Given an array: ")
     //arraydisp.appendChild(newContent);
     screen.appendChild(firstLine);
-    for(let i = 0; i < testArray.length; i++){
-        if(i == testArray.length -1){
-            newContent = document.createTextNode(testArray[i].toString());
+    for(let i = 0; i < inputArray.length; i++){
+        if(i == inputArray.length -1){
+            newContent = document.createTextNode(inputArray[i].toString());
             arraydisp.appendChild(newContent);
             break;
         }
-        newContent = document.createTextNode(testArray[i].toString() + ", ");
+        newContent = document.createTextNode(inputArray[i].toString() + ", ");
         arraydisp.appendChild(newContent);
         
     }
@@ -55,16 +60,16 @@ function bubbleSort(){
         //inner loop is looking for pairs that are out of order and corrects the two
         
         let newLine = document.createElement("div");
-        while(current < testArray.length - 1){
+        while(current < inputArray.length - 1){
             
             stringArr = bubbleSortDisplay(current);
             newLine.append(stringArr);
             screen.appendChild(newLine);
-            if(testArray[current] > testArray[current + 1]){
+            if(inputArray[current] > inputArray[current + 1]){
                 
-                let temp = testArray[current];
-                testArray[current] = testArray[current + 1];
-                testArray[current + 1] = temp;
+                let temp = inputArray[current];
+                inputArray[current] = inputArray[current + 1];
+                inputArray[current + 1] = temp;
 
                 swapped = true;
             }//end of if statement
@@ -76,8 +81,12 @@ function bubbleSort(){
         pass++;
         newLine = document.createElement("div");
     }//end of first outer loop
-    let endMessage = "Sorting complete!"
+    let endMessage = "Sorting complete!\n"
     let newLine = document.createElement("div");
+    newLine.append(endMessage);
+    screen.appendChild(newLine);
+    endMessage = bubbleSortArray;
+    newLine = document.createElement("div");
     newLine.append(endMessage);
     screen.appendChild(newLine);
 }
@@ -164,55 +173,55 @@ function selectionSort(){
 //selectionSort();
 // bubbleSort();
 
-function pidgeonHoleSort(){
-    console.log(pidgeonHoleArr);
-    let min = pidgeonHoleArr[0];
-    let max = pidgeonHoleArr[0];
-    let range;
-    let index;
-    let n = pidgeonHoleArr.length;
+// function pidgeonHoleSort(){
+//     console.log(pidgeonHoleArr);
+//     let min = pidgeonHoleArr[0];
+//     let max = pidgeonHoleArr[0];
+//     let range;
+//     let index;
+//     let n = pidgeonHoleArr.length;
 
-    for(let a = 0; a < n; a++){
-        if(pidgeonHoleArr[a] > max){
-            max = testArray[a];
-        }
-        if(pidgeonHoleArr[a] < min){
-            min = pidgeonHoleArr[a];
-        }
-    }
+//     for(let a = 0; a < n; a++){
+//         if(pidgeonHoleArr[a] > max){
+//             max = testArray[a];
+//         }
+//         if(pidgeonHoleArr[a] < min){
+//             min = pidgeonHoleArr[a];
+//         }
+//     }
 
-    range = max - min + 1;
-    let pidgeonHole = [];
+//     range = max - min + 1;
+//     let pidgeonHole = [];
 
-    for(let i = 0; i < n; i++){
-        pidgeonHole[i] = 0;
-    }
+//     for(let i = 0; i < n; i++){
+//         pidgeonHole[i] = 0;
+//     }
 
-    for(let i = 0; i < n; i++){
-        pidgeonHole[pidgeonHoleArr[i] - min]++;
-    }
+//     for(let i = 0; i < n; i++){
+//         pidgeonHole[pidgeonHoleArr[i] - min]++;
+//     }
 
-    index = 0;
+//     index = 0;
 
-    for(let j = 0; j < range; j++){
-        while(pidgeonHole[j] --> 0){
-            pidgeonHoleArr[index++] = j + min;
-        }
-    }
+//     for(let j = 0; j < range; j++){
+//         while(pidgeonHole[j] --> 0){
+//             pidgeonHoleArr[index++] = j + min;
+//         }
+//     }
 
-}
+// }
 
-pidgeonHoleSort();
-console.log(pidgeonHoleArr)
+// pidgeonHoleSort();
+// console.log(pidgeonHoleArr)
 //beginning of sorting algorithm display functions
 function bubbleSortDisplay(current){
     let tbDisplayed = "";
-    for(let i = 0; i < 73; i++){
+    for(let i = 0; i < 1000; i++){
         tbDisplayed += " ";
     }
 
-    for(let i = 0; i < testArray.length; i++){
-        tbDisplayed = setCharAt(tbDisplayed, (i*6+3), testArray[i].toString());
+    for(let i = 0; i < bubbleSortArray.length; i++){
+        tbDisplayed = setCharAt(tbDisplayed, (i*6+3), bubbleSortArray[i].toString());
         //tbDisplayed = setCharAt(tbDisplayed, (i*6+5), testArray[i].toString());
     }
 
@@ -258,13 +267,40 @@ function selectionSortDisplay(sortedTo, candidate, checked){
 }
 
 //event listeners
-// const bubble = document.getElementById("bubble");
+const bubble = document.getElementById("bubble");
 // const select = document.getElementById("select");
 
-// bubble.addEventListener("click", function(){
-//     screen.innerHTML = "";
-//     bubbleSort();
-// })
+bubble.addEventListener("click", function(){
+     screen.innerHTML = "";
+
+    if(input.value === ""){
+        let size = Math.floor(Math.random() * 20);
+        
+        for(let i = 0; i < size; i++){
+            let randomNum = Math.floor(Math.random() * 100);
+
+            bubbleSortArray.push(randomNum);
+        }
+        console.log(bubbleSortArray);
+        bubbleSort(bubbleSortArray);
+
+    }
+
+    else{
+        let pattern = /^[0-9,+=]*$/g;
+
+        if(!input.value.match(pattern)){            
+            window.alert("Error, the input should only be numbers and commas");
+        }
+        else{
+            let temp = input.value.split(",")
+            for(let i = 0; i < temp.length; i++){
+                bubbleSortArray.push(parseInt(temp[i]));
+            }
+            bubbleSort(bubbleSortArray);
+        }
+    }
+})
 
 // select.addEventListener("click", function(){
 //     screen.innerHTML = "";
